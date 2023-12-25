@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// using bubble sort to sort the array
+int bubbleSort(int arr[], int size){
+
+    for (int i = 0; i < size-1; i++){ 
+         // Since, after each iteration righmost i elements are sorted 
+         for (int j = 0; j < size-i-1; j++) if (arr[j] > arr[j+1]){
+                int temp = arr[j]; // swap the element
+                arr[j] = arr[j+1]; 
+                arr[j+1] = temp; 
+             }
+    }
+    return 0;
+}
+
+// find repeating element
+void findRepeating(int arr[], int n){
+
+    int count = 0;
+
+    for (int i = 0; i < n; i++) {
+
+       int flag = 0;
+       while (i < n - 1 && arr[i] == arr[i + 1]){
+             flag = 1;
+             i++;
+       }
+       if(flag)
+          cout<<arr[i-1]<<" ";
+    }
+
+}
+
+// Main function to run the program
+int main() 
+{ 
+    int arr[] = {20, 30, 10, 2, 10, 20, 30, 11}; 
+    int n = sizeof(arr)/sizeof(arr[0]);
+
+    bubbleSort(arr, n);
+
+    findRepeating(arr, n);
+
+    return 0; 
+}
+// Time Complexity : O(N)
+// Space Complexity : O(1)
